@@ -8,12 +8,15 @@ export class ApiOrchardService {
     private baseUrl?: string;
 
     constructor(private http: HttpClient) {
-        this.baseUrl = "https://localhost:7241";
+        this.baseUrl = "https://localhost:7241/resources/api/";
     }
 
-    // TODO: Need to hook this up to orchard CMS
-    getData(): any {
-        console.log('Function Called');
-        return this.http.get<any>(this.baseUrl + '');
+    getArticles(): any {
+        return this.http.get<any>(this.baseUrl + 'Home/GetAllCustomArticles');
+    }
+
+    getCustomStyles(): any {
+        return this.http.get<any>(this.baseUrl + 'Home/GetAllCustomStyles');
+
     }
 }
